@@ -8,13 +8,17 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc -p server/tsconfig.json",
+    "build:core": "tsc",
+    "build:server": "tsc -p server/tsconfig.json",
     "test": "jest",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "dev": "ts-node src/index.ts",
     "start": "node dist/index.js",
-    "clean": "rm -rf dist"
+    "server": "ts-node server/src/server.ts",
+    "server:prod": "node server/dist/server.js",
+    "clean": "rm -rf dist server/dist"
   },
   "keywords": [
     "audio",
@@ -28,9 +32,13 @@
   "author": "MASSIVE MAGNETICS",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
     "web-audio-api": "^0.2.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^4.17.25",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.6",
     "@typescript-eslint/eslint-plugin": "^6.18.0",

@@ -4,6 +4,8 @@
 
 A complete, production-ready, enterprise-grade audio synthesis ecosystem powered by quantum-optimized AI/ML capabilities. Built for the future of audio creation and processing.
 
+**Full-stack application with both frontend web interface and backend API server.**
+
 ## 🚀 Features
 
 ### Core Capabilities
@@ -13,9 +15,13 @@ A complete, production-ready, enterprise-grade audio synthesis ecosystem powered
 - **🔌 Extensible Plugin Architecture**: Modular design with built-in effects (Reverb, Delay, Distortion)
 - **⚡ Quantum-Optimized Processing**: Future-proof architecture ready for quantum computing integration
 - **📊 Real-time Analytics**: Performance metrics and audio feature extraction
+- **🌐 Web Interface**: Beautiful, responsive frontend with interactive keyboard
+- **🔌 REST API**: Complete backend API for programmatic access
 
 ### Technical Highlights
 - TypeScript for type safety and maintainability
+- Express.js backend server with REST API
+- Modern, responsive web interface
 - Modular architecture with clean separation of concerns
 - Comprehensive error handling and validation
 - Production-ready configuration management
@@ -31,7 +37,14 @@ npm install
 ## 🏗️ Building
 
 ```bash
+# Build everything (core library + server)
 npm run build
+
+# Build only core library
+npm run build:core
+
+# Build only server
+npm run build:server
 ```
 
 ## 🧪 Testing
@@ -40,9 +53,22 @@ npm run build
 npm test
 ```
 
-## 🎯 Quick Start
+## 🚀 Running the Application
 
-### Basic Usage
+### Start the Web Application
+
+```bash
+# Development mode (with TypeScript compilation)
+npm run server
+
+# Production mode (requires build first)
+npm run build
+npm run server:prod
+```
+
+Then open your browser to `http://localhost:3001`
+
+### Use as a Library
 
 ```typescript
 import { VictorStudio } from 'victor-audio-ssi-studio';
@@ -108,6 +134,57 @@ pluginManager.setChain(['reverb', 'delay']);
 
 // Process audio
 const processed = await pluginManager.processChain(audioBuffer);
+```
+
+## 🌐 Web Application
+
+The studio includes a full-stack web application with an interactive interface.
+
+### Features
+- **🎹 Interactive Keyboard**: Click or use keyboard (A-K keys) to play notes
+- **🎛️ Real-time Controls**: Adjust oscillator type, amplitude, and effects
+- **🤖 AI Generation**: Generate audio using different AI styles
+- **📊 Live Visualizer**: Real-time audio visualization
+- **🔌 Plugin Management**: Apply and chain audio effects
+- **📈 Status Dashboard**: Monitor active voices and studio state
+
+### API Endpoints
+
+#### Studio Control
+- `POST /api/studio/initialize` - Initialize the audio studio
+- `POST /api/studio/shutdown` - Shutdown the studio
+- `GET /api/studio/status` - Get current studio status
+- `GET /api/health` - Health check
+
+#### Synthesis
+- `POST /api/synthesis/start-voice` - Start a synthesis voice
+- `POST /api/synthesis/stop-voice/:voiceId` - Stop a specific voice
+- `POST /api/synthesis/synthesize` - Generate audio buffer
+
+#### AI Processing
+- `POST /api/ai/generate` - Generate audio using AI
+- `POST /api/ai/analyze` - Analyze audio features
+
+#### Plugins
+- `GET /api/plugins` - List available plugins and current chain
+- `POST /api/plugins/chain` - Set plugin processing chain
+- `POST /api/plugins/process` - Process audio through plugin chain
+
+### Example API Usage
+
+```bash
+# Initialize studio
+curl -X POST http://localhost:3001/api/studio/initialize
+
+# Start a voice
+curl -X POST http://localhost:3001/api/synthesis/start-voice \
+  -H "Content-Type: application/json" \
+  -d '{"frequency": 440, "amplitude": 0.5, "oscillatorType": "sine"}'
+
+# Generate AI audio
+curl -X POST http://localhost:3001/api/ai/generate \
+  -H "Content-Type: application/json" \
+  -d '{"inputData": [0.1, 0.2, 0.3], "metadata": {"style": "ambient"}}'
 ```
 
 ## 📚 Examples
