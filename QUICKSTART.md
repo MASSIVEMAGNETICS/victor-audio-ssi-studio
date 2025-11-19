@@ -207,6 +207,7 @@ for (const style of styles) {
 - Explore the [API Documentation](README.md#-api-documentation)
 - Check out the [Architecture](ARCHITECTURE.md)
 - Read the [Contributing Guidelines](CONTRIBUTING.md)
+- Review the [Product Roadmap](ROADMAP.md) for upcoming features
 - Try the example scripts in the `examples/` directory
 
 ## 🆘 Getting Help
