@@ -346,15 +346,15 @@ MIT
 
 ## 🌟 Future Roadmap
 
-- WebAssembly optimization for browser deployment
-- Real-time collaborative sessions
-- Advanced DSP algorithms (FFT, spectral processing)
-- Machine learning model training pipeline
-- Cloud rendering support
-- MIDI integration
-- Audio file I/O (WAV, MP3, FLAC)
-- Visual waveform/spectrum analysis
-- Preset management system
+For a comprehensive development plan with timelines, milestones, and detailed feature specifications, see **[ROADMAP.md](ROADMAP.md)**.
+
+### Highlights
+- **Phase 1 (Q1 2026):** WebAssembly optimization, Advanced DSP, Performance improvements
+- **Phase 2 (Q2 2026):** MIDI integration, Audio file I/O, Hardware integration
+- **Phase 3 (Q3 2026):** ML training pipeline, Advanced generative models, Intelligent features
+- **Phase 4 (Q4 2026):** Real-time collaboration, Cloud rendering, Project management
+- **Phase 5 (Q1 2027):** Visual analysis tools, Enhanced UI/UX, Accessibility & i18n
+- **Phase 6 (Q2 2027+):** Quantum computing integration, Cutting-edge research
 
 ---
 
